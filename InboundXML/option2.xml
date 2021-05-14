@@ -1,11 +1,15 @@
 <Response>
-    <!-- Opcion uno, grabar mensaje y reproducirlo -->
-    <Say voice="woman" language="es-us">Graba tu mensaje y al finalizar presiona numeral.</Say>
-    <Record background="false" playBeep="true" finishOnKey="#"/>
-    <Say voice="woman" language="es-us">Su mensaje es:</Say>
-    <PlayLastRecording/>
-    <!-- Fin del flujo -->
-    <Gather method="POST" numDigits="1" finishOnKey="#" action="http://{{tufileserver}}/InboundXML/LastRedirect.xml?tufileserver={{tufileserver}}">
-      <Say voice="woman" language="es-us">Presiona UNO para volver al menu principal, Presiona DOS para terminar la llamada</Say>
-    </Gather>
+  <!-- InboundXML inicial -->
+  <Gather method="POST" numDigits="1" finishOnKey="#" action="http://{{tufileserver}}/InboundXML/BaseRedirect.xml?tufileserver={{tufileserver}}">
+  	<Say voice="male" language="es-us">
+    Presiona uno para conocer los horarios del recolector de reciclaje.
+      </Say>
+      <Say voice="male" language="es-us">
+    Presiona dos para comunicarte con un reciclador cercano.
+    </Say>
+     <Say voice="male" language="es-us">
+    Presiona cuatro para repetir el menú.
+      </Say>
+  </Gather>
+  <Say voice="woman" language="es-us">Hasta luego</Say>
 </Response>
