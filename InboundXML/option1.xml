@@ -1,8 +1,20 @@
 <Response>
-    <!-- Opcion 1, Enviar SMS -->
-    <Say voice="woman" language="es-us">Enviando el SMS al area de seguridad.</Say>
-    <Sms from="+18152054154" to="+17863930499">Mensaje de ejemplo para el Hackaton</Sms>
-    <Gather method="POST" numDigits="1" finishOnKey="#" action="http://{{tufileserver}}/InboundXML/LastRedirect.xml?tufileserver={{tufileserver}}">
-      <Say voice="woman" language="es-us">Presiona UNO para volver al menu principal, Presiona DOS para terminar la llamada</Say>
-    </Gather>
+  <!-- Opcion uno, Submenu de opciones de texto -->
+  <Gather method="POST" numDigits="1" finishOnKey="#" action="http://{{tufileserver}}/InboundXML/option1/option1redirect.xml?tufileserver={{tufileserver}}">
+    <Say voice="man" language="es-us">
+      Presiona uno para información sobre plásticos y envases
+    </Say>
+    <Say voice="man" language="es-us">
+      Presiona dos para información sobre vidrios
+    </Say>
+    <Say voice="man" language="es-us">
+      Presiona tres para información sobre papel y cartón
+    </Say>
+    <Say voice="man" language="es-us">
+      Presiona cuatro para información sobre basura orgánica
+    </Say>
+    <Say voice="man" language="es-us">
+      Presiona cinco para información sobre restos no reciclables
+    </Say>
+  </Gather>
 </Response>
